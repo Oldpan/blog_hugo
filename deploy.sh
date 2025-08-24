@@ -1,9 +1,6 @@
-# 先git add 和 git commit
-
-# 1) 确保 Pages 不跑 Jekyll
+#!/bin/bash
+export https_proxy=http://127.0.0.1:7890
 touch public/.nojekyll
-# 如果有自定义域名，也把 CNAME 放进 public/
-echo blog.oldpan.me > public/CNAME
 
 hugo --minify
 echo blog.oldpan.me > public/CNAME
