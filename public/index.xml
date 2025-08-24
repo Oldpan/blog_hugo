@@ -1,12 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Oldpan博客</title>
-    <link>https://example.org/</link>
-    <description>Recent content on Oldpan博客</description>
-    <generator>Hugo -- 0.145.0</generator>
-    <language>en-us</language>
-    <lastBuildDate></lastBuildDate>
-    <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Oldpan博客</title><link>https://example.org/</link><description>Recent content on Oldpan博客</description><generator>Hugo -- 0.145.0</generator><language>en-us</language><lastBuildDate>Sun, 06 Jul 2025 17:24:12 +0800</lastBuildDate><atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml"/><item><title>第一篇 96G显存的4060？简单聊下AI MAX 395</title><link>https://example.org/posts/ai-max-395-1/</link><pubDate>Sun, 06 Jul 2025 17:24:12 +0800</pubDate><guid>https://example.org/posts/ai-max-395-1/</guid><description>&lt;p>之前 &lt;a href="https://mp.weixin.qq.com/s/IYgRPWDQ52UW6OXK7B-jQg">5090？Project DIGITS？Ryzen AI Max+ 395？有哪些想买的AI产品&lt;/a> 简单聊过 AI MAX 395 这个APU。&lt;/p>
+&lt;p>作为AMD的第一代核显性能和独显打平的APU，我个人还是非常感兴趣，于是斥巨资买了一台幻x2025款。&lt;/p>
+&lt;p>因为不确定其除了LLM能力（绝大部分宣传稿提到的），在通用AI领域能力相比4060版本怎么样（比如生图、生成视频、跑各种AI库等等），所以买了个丐版先尝尝鲜。相比于395版本的满血40CU，丐版390的显卡核心为32CU，理论性能相差20%。&lt;/p>
+&lt;p>&lt;img alt="390-8050s" loading="lazy" src="https://example.org/posts/ai-max-395-1/image.png">&lt;/p>
+&lt;p>390-8050s&lt;/p>
+&lt;p>AI MAX 395满血TDP是120w左右，幻x只有90w手动模式，无法完全释放性能，而且有溢价。&lt;/p>
+&lt;p>所以真正比较实惠的还是买MINI主机版本，现在有很多厂商下场在做了，包括前几天已经开始发售的极摩客evo-x2，未来一两个月还会有fevm、零刻、玲珑等厂商做mini主机，这个性价比会高些。&lt;/p>
+&lt;h1 id="rtx-4060的性能">RTX 4060的性能&lt;/h1>
+&lt;p>我们先看下4060的性能，4060比较特殊，笔记本和桌面端除了功耗上限外，硬件配置基本一致。&lt;/p>
+&lt;p>按照官方展示的算力来计算，列两个关键的指标：&lt;/p>
+&lt;ul>
+&lt;li>Tensor Core fp16算力，非稀疏，60.5 TFlops ，换算成FP8的话，翻个倍，而Cuda Core fp16的算力为 15.11 TFLOPS&lt;/li>
+&lt;li>带宽 272g/s 、TGP为115W&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img alt="image.png" loading="lazy" src="https://example.org/posts/ai-max-395-1/image%201.png">&lt;/p>
+&lt;p>因为FP16是最常用的精度，就以FP16为准。虽然实际中tensor core和cuda core可以同时执行，但是理论算力不可能叠加（因为每个sm的资源限制，一般来说跑tensor core就没资源跑cuda core），所以这里按照4060最大tensor core算力来算，也就是60.5Tflops。&lt;/p>
+&lt;blockquote>
+&lt;p>当然tensor core的适用性不如cuda core，因为目前现在大部分AI任务都是基于矩阵乘法，所以可以近似地按照这个算力来估算&lt;/p>&lt;/blockquote>
+&lt;h1 id="ai-max-395--390-介绍">AI MAX 395 / 390 介绍&lt;/h1>
+&lt;p>AI MAX 395的核显为8060s和我这个丐版390的核显8050s，两者代号都为gfx1151，FP16算力分别是60 tflops 和45 tflops。&lt;/p>
+&lt;p>可以看到8060s的fp16算力基本和4060的fp16算力相当。&lt;/p>
+&lt;h2 id="理论算力怎么来的">理论算力怎么来的&lt;/h2>
+&lt;p>简单分析下，因为8060s基于RDNA3.5架构，和RDNA3的RX 7900架构基本一致，所以直接借用RDNA3的数据来分析：&lt;/p>
+&lt;p>&lt;img alt="8060s架构和RX7900基本一致" loading="lazy" src="https://example.org/posts/ai-max-395-1/image%202.png">&lt;/p>
+&lt;p>8060s架构和RX7900基本一致&lt;/p>
+&lt;p>通过上表可以得到，核显中的 CU 每个周期可以执行 512 次fp16/bf16/INT8的乘加操作，1024次INT4的乘加操作。在最大时钟频率 2.9GHz 下，其峰值性能应为 59.4 FP16/BF16 TFLOPS，通过这个公式可以计算出来，接近60TFLOPS，和4060相当。&lt;/p></description></item></channel></rss>

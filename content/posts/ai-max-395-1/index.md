@@ -1,6 +1,6 @@
 ---
 date: '2025-07-06T17:24:12+08:00'
-draft: true
+draft: False
 title: '第一篇 96G显存的4060？简单聊下AI MAX 395'
 ---
 
